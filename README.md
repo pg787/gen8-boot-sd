@@ -17,8 +17,8 @@ It includes:
 
 ## Usage
 1. Set BIOS to AHCI mode.  
-2. Flash the SD image to an internal SD card.  
-3. Insert the SD card into your Gen8’s internal SD slot.  
+2. Flash the SD image to an SD card.  
+3. Insert the SD card into your Gen8’s internal SD slot (or you can use a USB stick on the internal port).  
 4. Boot the server — GRUB will automatically attempt to boot the SSD first, then fallback to other drives if necessary.  
 5. Optionally, select manual entries from the menu. 
 
