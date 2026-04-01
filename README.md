@@ -71,7 +71,7 @@ sudo parted /dev/sdX --script set 1 boot on
 Step 4: Set the partition type to FAT32 (W95 LBA)
 
 sudo fdisk /dev/sdX
-# inside fdisk:
+inside fdisk:
 t   # change partition type
 c   # code for W95 FAT32 (LBA)
 w   # write changes and exit
