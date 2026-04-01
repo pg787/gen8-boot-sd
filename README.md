@@ -83,7 +83,7 @@ w   # write changes and exit
 ------------------------------------------------------------
 Step 5: Format the partition as FAT32
 
-sudo mkfs.vfat -F32 -n GRUB /dev/sdX1
+sudo mkfs.vfat -F32 /dev/sdX1
 
 - /dev/sdX1 is the first partition, not the entire disk.
 
