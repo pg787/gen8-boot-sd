@@ -176,6 +176,46 @@ Notes
 - Always double-check the device path (/dev/sdX) to prevent data loss.
 - The image includes MBR + first partition only, which is portable and compact.
 
+------------------------------------------------------------
+RESTORE gen8-grub-sd.img
+------------------------------------------------------------
+The image is supplied as a multi-part 7-Zip archive:
+  gen8-grub-sd.7z.001
+  gen8-grub-sd.7z.002
+
+Download both files to the same directory.
+
+------------------------------------------------------------
+Step 1: Extract the image
+
+Install 7-Zip if required:  sudo apt install p7zip-full
+Extract using:  7z x gen8-grub-sd.7z.001
+This produces:  gen8-grub-sd.img
+
+------------------------------------------------------------
+Step 2: Identify the microSD
+
+The target microSD card must be at least 128 MiB or greater. (I used some old 2GB cards).
+If you want to use a smaller card follow the manual instructions above to make your own img.
+
+Insert the card and run:  lsblk
+Identify the whole device, e.g. `/dev/sdb`.
+
+Do not use partitions e.g. `/dev/sdb1`.
+
+------------------------------------------------------------
+Step 3: Write the image
+
+Unmount the card if necessary, then:
+sudo dd if=./gen8-grub-sd.img of=/dev/sdX bs=4M status=progress conv=fsync
+
+Replace `/dev/sdX` with your actual microSD device.
+WARNING: Double-check the device name. `dd` will overwrite the selected disk.
+
+Finally:  sync
+
+The microSD card is now ready for use in the HP MicroServer Gen8.
+
 ## License
 This project is licensed under GPLv3.  
 It includes the unmodified GRUB bootloader (GPLv3). All scripts, configurations, and SD images are also under GPLv3.  
